@@ -1,0 +1,418 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;700&family=Playfair+Display:wght@700;900&display=swap');
+
+:root {
+    --bg-color: #0a0a0a;
+    --primary-dark: #121212;
+    --text-color: #e0e0e0;
+    --heading-color: #ffffff;
+    --accent-color: #ffffff;
+    --border-color: #333333;
+    --font-heading: 'Playfair Display', serif;
+    --font-body: 'Open Sans', sans-serif;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    font-family: var(--font-body);
+    line-height: 1.6;
+}
+a {
+    color: var(--accent-color);
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+header {
+    background-color: rgba(10, 10, 10, 0.8);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid var(--border-color);
+    padding: 15px 0;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+nav {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+}
+
+.logo img {
+    height: 50px;
+    width: 50px;
+    object-fit: cover;
+    border-radius: 50%;
+    margin-right: 10px;
+}
+
+.logo-text {
+    font-family: var(--font-heading);
+    font-weight: 900;
+    font-size: 1.5rem;
+    color: var(--heading-color);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    text-shadow: 0 0 5px rgba(255, 255, 255, 0.5);
+}
+
+nav ul#nav-links {
+    display: flex;
+    list-style: none;
+    margin-left: 40px;
+}
+
+nav ul#nav-links li {
+    margin-left: 25px;
+}
+
+nav ul#nav-links a {
+    font-family: var(--font-heading);
+    font-weight: 700;
+    font-size: 1rem;
+    padding: 5px 10px;
+    border-radius: 4px;
+    transition: background-color 0.3s ease, text-shadow 0.3s ease;
+}
+
+nav ul#nav-links a:hover,
+nav ul#nav-links a:focus {
+    background-color: var(--primary-dark);
+    text-shadow: 0 0 8px rgba(255, 255, 255, 0.7);
+}
+
+#hamburger-btn {
+    display: none;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 10px;
+    z-index: 1010;
+    position: relative; /* DÜZELTME 1: z-index'in çalışması için bu eklendi */
+}
+
+#hamburger-btn .bar {
+    display: block;
+    width: 25px;
+    height: 3px;
+    margin: 5px auto;
+    background-color: var(--heading-color);
+    transition: all 0.3s ease-in-out;
+}
+
+.hero {
+    height: 70vh;  
+    width: 100%;
+    position: relative;
+    overflow: hidden;
+    border-bottom: 1px solid var(--border-color);
+}
+.hero-carousel {
+    width: 100%;
+    height: 100%;
+}
+.slide {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-position: center;
+    opacity: 0;  
+    transition: opacity 1.5s ease-in-out;
+    display: flex;
+    align-items: flex-end;  
+    justify-content: flex-start;  
+}
+.slide[data-active="true"] {
+    opacity: 1;
+    z-index: 10;
+}
+.slide::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to top, rgba(10, 10, 10, 0.9) 10%, rgba(10, 10, 10, 0.5) 40%, rgba(10, 10, 10, 0) 100%);
+    z-index: 1;
+}
+.slide-content {
+    position: relative;
+    z-index: 2;
+    padding: 50px;
+    max-width: 800px;
+    color: var(--heading-color);
+    animation: slideUp 1s ease-in-out;
+}
+.slide[data-active="true"] .slide-content {
+    animation: slideUp 1.2s cubic-bezier(0.19, 1, 0.22, 1);
+}
+@keyframes slideUp {
+    from { opacity: 0; transform: translateY(40px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+.slide-content span {
+    display: block;
+    font-size: 0.9rem;
+    color: #aaa;
+    margin-bottom: 10px;
+}
+.slide-content h2 {
+    font-family: var(--font-heading);
+    font-size: 3rem;
+    font-weight: 900;
+    text-shadow: 0 0 10px rgba(0, 0, 0, 0.7);
+    margin-bottom: 15px;
+}
+.slide-content p {
+    font-size: 1.1rem;
+    color: var(--text-color);
+    margin-bottom: 30px;
+    max-width: 600px;
+}
+.cta-button {
+    font-family: var(--font-heading);
+    font-weight: 700;
+    font-size: 1rem;
+    color: var(--bg-color);
+    background-color: var(--accent-color);
+    padding: 12px 30px;
+    border-radius: 50px;
+    text-transform: uppercase;
+    transition: background-color 0.3s ease, color 0.3s ease, box-shadow 0.3s ease;
+}
+.cta-button:hover,
+.cta-button:focus {
+    background-color: #d4d4d4;
+    box-shadow: 0 0 15px rgba(255, 255, 255, 0.8);
+}
+
+.section {
+    /* DÜZELTME 2: padding: 60px 0; idi. Kenar boşluklarını eklemek için 60px 20px olarak değişti. */
+    padding: 60px 20px; 
+}
+
+.section h2 {
+    font-family: var(--font-heading);
+    font-size: 2.5rem;
+    color: var(--heading-color);
+    text-align: left;
+    margin-bottom: 40px;
+    border-bottom: 1px solid var(--border-color);
+    padding-bottom: 10px;
+}
+
+.project-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+}
+
+.card {
+    background-color: var(--primary-dark);
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 30px rgba(255, 255, 255, 0.1);
+}
+.card-image {
+    height: 200px;
+    background-size: cover;
+    background-position: center;
+}
+.card-content {
+    padding: 25px;
+}
+.card-content h3 {
+    font-family: var(--font-heading);
+    font-size: 1.5rem;
+    color: var(--heading-color);
+    margin-bottom: 10px;
+}
+.card-content p {
+    font-size: 0.95rem;
+    color: var(--text-color);
+}
+.news-list .news-item {
+    background-color: var(--primary-dark);
+    padding: 25px;
+    margin-bottom: 20px;
+    border-radius: 8px;
+    border: 1px solid var(--border-color);
+    transition: border-color 0.3s ease;
+}
+.news-list .news-item:hover {
+    border-color: var(--accent-color);
+}
+.news-list .news-item h3 {
+    font-family: var(--font-heading);
+    font-size: 1.75rem;
+    color: var(--heading-color);
+}
+.news-list .news-item span {
+    display: block;
+    font-size: 0.85rem;
+    color: #888;
+    margin: 5px 0 15px 0;
+}
+.news-list .news-item p {
+    margin-bottom: 15px;
+}
+.news-list .news-item a {
+    font-weight: 700;
+    color: var(--accent-color);
+    font-size: 0.9rem;
+}
+.news-list .news-item a:hover {
+    text-decoration: underline;
+}
+footer {
+    text-align: center;
+    padding: 40px 0;
+    margin-top: 40px;
+    border-top: 1px solid var(--border-color);
+    color: #777;
+    font-size: 0.9rem;
+}
+
+
+/* ======================================= */
+/* MOBİL UYUMLULUK (TABLET)                */
+/* ======================================= */
+
+@media (max-width: 768px) {
+    
+    .hero {
+        height: 60vh;
+    }
+
+    nav {
+        justify-content: space-between;
+    }
+
+    nav ul#nav-links {
+        position: fixed;
+        top: 0;
+        right: -100%;
+        width: 100%;
+        height: 100vh;
+        background-color: var(--bg-color);
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        margin-left: 0;
+        transition: transform 0.5s ease-in-out;
+        z-index: 1000;
+    }
+
+    nav ul#nav-links.nav-active {
+        transform: translateX(-100%);
+    }
+
+    nav ul#nav-links li {
+        margin: 20px 0;
+        margin-left: 0;
+    }
+
+    nav ul#nav-links a {
+        font-size: 1.5rem;
+    }
+
+    #hamburger-btn {
+        display: block;
+    }
+
+    #hamburger-btn.nav-active .bar:nth-child(1) {
+        transform: translateY(8px) rotate(45deg);
+    }
+    #hamburger-btn.nav-active .bar:nth-child(2) {
+        opacity: 0;
+    }
+    #hamburger-btn.nav-active .bar:nth-child(3) {
+        transform: translateY(-8px) rotate(-45deg);
+    }
+
+    .slide-content h2 {
+        font-size: 2.2rem;
+    }
+    
+    .slide-content p {
+        font-size: 1rem;
+    }
+
+    .slide-content {
+        padding: 30px;
+    }
+}
+
+/* ======================================= */
+/* MOBİL UYUMLULUK (TELEFON)               */
+/* ======================================= */
+
+@media (max-width: 480px) {
+    
+    .hero {
+        height: 55vh;
+    }
+
+    .slide-content h2 {
+        font-size: 1.8rem;
+    }
+    .slide-content p {
+        font-size: 0.9rem;
+    }
+    .cta-button {
+        padding: 10px 20px;
+        font-size: 0.9rem;
+    }
+    .section h2 {
+        font-size: 2rem;
+    }
+
+    .project-grid {
+        gap: 20px;
+    }
+    .card-image {
+        height: 180px;
+    }
+    .card-content {
+        padding: 20px;
+    }
+    .card-content h3 {
+        font-size: 1.3rem;
+    }
+    .card-content p {
+        font-size: 0.9rem;
+    }
+}
