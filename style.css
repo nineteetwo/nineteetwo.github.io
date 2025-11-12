@@ -111,7 +111,7 @@ nav ul#nav-links a:focus {
     cursor: pointer;
     padding: 10px;
     z-index: 1010;
-    position: relative; /* DÜZELTME 1: z-index'in çalışması için bu eklendi */
+    position: relative;
 }
 
 #hamburger-btn .bar {
@@ -214,8 +214,7 @@ nav ul#nav-links a:focus {
 }
 
 .section {
-    /* DÜZELTME 2: padding: 60px 0; idi. Kenar boşluklarını eklemek için 60px 20px olarak değişti. */
-    padding: 60px 20px; 
+    padding: 60px 20px;
 }
 
 .section h2 {
@@ -307,9 +306,6 @@ footer {
 }
 
 
-/* ======================================= */
-/* MOBİL UYUMLULUK (TABLET)                */
-/* ======================================= */
 
 @media (max-width: 768px) {
     
@@ -376,9 +372,7 @@ footer {
     }
 }
 
-/* ======================================= */
-/* MOBİL UYUMLULUK (TELEFON)               */
-/* ======================================= */
+
 
 @media (max-width: 480px) {
     
