@@ -1,13 +1,11 @@
 document.addEventListener('DOMContentLoaded', function () {
 
-
     const slides = document.querySelectorAll('.hero-carousel .slide');
     let currentIndex = 0;
     const slideInterval = 5000;
 
     function showSlide(index) {
         slides.forEach((slide, i) => {
-           
             slide.setAttribute('data-active', i === index ? 'true' : 'false');
         });
     }
@@ -17,23 +15,17 @@ document.addEventListener('DOMContentLoaded', function () {
         showSlide(currentIndex);
     }
 
-
     if (slides.length > 0) {
         showSlide(currentIndex);
         setInterval(nextSlide, slideInterval);
     }
 
-
-    
     const hamburgerBtn = document.getElementById('hamburger-btn');
     const navLinks = document.getElementById('nav-links');
 
     hamburgerBtn.addEventListener('click', () => {
-      
-        navLinks.classList.toggle('active');
-        
-       
-        hamburgerBtn.classList.toggle('active');
+        navLinks.classList.toggle('nav-active');
+        hamburgerBtn.classList.toggle('nav-active');
     });
 
 });
