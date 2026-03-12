@@ -1,0 +1,548 @@
+/* =========================================
+   1. GENEL AYARLAR
+   ========================================= */
+
+*, *::before, *::after {
+    box-sizing: border-box;
+}
+
+body {
+    background-color: #302975;
+    color: white;
+    font-family: "Liberation Serif", serif;
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden; 
+    
+    /* Footer'ı her zaman en altta tutmak için Flexbox ayarları */
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+a {
+    color: white;
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+
+/* =========================================
+   2. TOPBAR & MASAÜSTÜ NAVİGASYON
+   ========================================= */
+
+.topbar {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    padding: 10px 0 25px 0;
+    background: linear-gradient(to bottom, rgba(0, 0, 0, 0.8) 0%, rgba(0, 0, 0, 0) 100%);
+}
+
+.logo {
+    font-family: "Comic Sans MS", "Comic Sans", cursive;
+    font-weight: bold;
+    font-size: 1.4rem;
+    color: #ffffff;
+    text-shadow: 0 0 10px rgba(255, 255, 255, 0.8), 0 0 20px rgba(255, 255, 255, 0.5);
+}
+
+.logo:hover {
+    text-shadow: 0 0 20px rgba(255, 255, 255, 1), 0 0 40px rgba(255, 255, 255, 0.8);
+}
+
+.desktop-logo {
+    position: absolute;
+    left: 40px;
+    top: 10px;
+}
+
+.menu_box {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    justify-content: center;
+    font-family: "Times New Roman", Times, "Georgia", serif;
+    font-size: 1rem;
+    letter-spacing: 1.5px;
+}
+
+.menu_box > a, .menu_box > .dropdown {
+    position: relative;
+    padding: 0 10px;
+    cursor: pointer;
+}
+
+.menu_box > a::after, .menu_box > .dropdown::after {
+    content: "|";
+    position: absolute;
+    right: -4px;
+    color: rgba(255, 255, 255, 0.4);
+}
+.menu_box > a:first-of-type::before {
+    content: "|";
+    position: absolute;
+    left: -4px;
+    color: rgba(255, 255, 255, 0.4);
+}
+
+.menu_box > a:hover, .menu_box .dropbtn:hover {
+    color: #fff;
+    text-shadow: 0 0 10px rgba(255, 255, 255, 0.9), 0 0 20px rgba(255, 255, 255, 0.6);
+}
+
+/* =========================================
+   3. AÇILIR MENÜ (DROPDOWN)
+   ========================================= */
+
+.dropdown {
+    display: inline-block;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: rgba(0, 0, 0, 0.85);
+    min-width: 120px;
+    padding: 15px 0;
+    border-radius: 4px;
+    z-index: 10;
+    box-shadow: 0px 8px 16px rgba(0,0,0,0.5);
+}
+
+@media (min-width: 901px) {
+    .dropdown:hover .dropdown-content {
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
+    }
+}
+
+.dropdown-content a {
+    position: relative;
+    padding: 0;
+    font-size: 0.95rem;
+    text-align: center;
+    cursor: pointer;
+}
+
+.dropdown-content a:hover {
+    color: #fff;
+    text-shadow: 0 0 10px rgba(255, 255, 255, 0.9);
+}
+
+.dropdown-content a::after, .dropdown-content a::before {
+    content: none !important;
+}
+
+.hamburger, .mobile-header {
+    display: none;
+}
+
+/* =========================================
+   4. MOBİL NAVİGASYON (MEDIA QUERY)
+   ========================================= */
+
+@media (max-width: 900px) {
+    .desktop-logo {
+        left: 20px;
+    }
+
+    .hamburger {
+        display: flex;
+        flex-direction: column;
+        gap: 6px;
+        position: absolute;
+        right: 20px;
+        top: 15px;
+        cursor: pointer;
+        z-index: 1000;
+        background: none;
+        border: none;
+        padding: 5px;
+    }
+
+    .hamburger .bar {
+        width: 30px;
+        height: 3px;
+        background-color: white;
+        border-radius: 2px;
+        box-shadow: 0 0 5px rgba(255, 255, 255, 0.5);
+    }
+
+    .menu_box {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100vh;
+        background-color: rgba(0, 0, 0, 0.98);
+        flex-direction: column;
+        justify-content: center;
+        gap: 20px;
+        font-size: 1.4rem;
+        z-index: 999;
+        opacity: 0;
+        visibility: hidden;
+        transition: opacity 0.4s ease, visibility 0.4s ease;
+        pointer-events: none; 
+    }
+
+    .menu_box.active {
+        opacity: 1;
+        visibility: visible;
+        pointer-events: all;
+    }
+
+    .mobile-header {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        position: absolute;
+        top: 20px;
+        width: 100%;
+    }
+
+    .menu_box > a::after, .menu_box > a:first-of-type::before, .menu_box > .dropdown::after {
+        content: none;
+    }
+
+    .menu_box > a::before, .menu_box > .dropdown > .dropbtn::before {
+        content: "| ";
+        color: rgba(255, 255, 255, 0.4);
+    }
+
+    .menu_box > a::after, .menu_box > .dropdown > .dropbtn::after {
+        content: " |";
+        color: rgba(255, 255, 255, 0.4);
+    }
+
+    .dropdown {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .dropdown-content {
+        position: static;
+        transform: none;
+        background-color: transparent;
+        box-shadow: none;
+        padding: 15px 0 0 0;
+        display: none; 
+    }
+
+    .dropdown-content.show {
+        display: flex;
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    .dropdown-content a::before {
+        content: "~ " !important;
+        position: static;
+        color: rgba(255,255,255,0.2);
+    }
+    .dropdown-content a::after {
+        content: " ~" !important;
+        position: static;
+        color: rgba(255,255,255,0.2);
+    }
+}
+
+/* =========================================
+   5. SAYFA İÇERİĞİ & PARŞÖMEN
+   ========================================= */
+
+.page-content {
+    flex-grow: 1; 
+    padding: 20px;
+    display: flex;
+    justify-content: center;
+}
+
+.parchment {
+    background-color: #fdf5e6; 
+    background-image: 
+        radial-gradient(circle at 50% 50%, transparent 70%, rgba(184, 153, 115, 0.4) 100%),
+        linear-gradient(to right, rgba(222, 184, 135, 0.2) 0%, transparent 5%, transparent 95%, rgba(222, 184, 135, 0.2) 100%);
+    
+    /* Siyaha çok yakın, koyu ve kirli bir kırmızı (Mürekkep) */
+    color: #1a0505; 
+    padding: 50px 60px;
+    margin: 40px auto;
+    width: 100%;
+    max-width: 850px;
+    
+    /* Düzensiz, yıpranmış kağıt kenarı hissi veren asimetrik kavisler */
+    border-radius: 2px 25px 5px 30px; 
+    
+    box-shadow: 
+        10px 15px 35px rgba(0, 0, 0, 0.6),
+        inset 0 0 40px rgba(139, 69, 19, 0.1); 
+    
+    /* İstenen font: Liberation Serif */
+    font-family: "Liberation Serif", "Times New Roman", serif;
+    line-height: 1.6;
+    font-size: 1.05rem;
+}
+
+/* --- Parşömen İçi GitHub Düzenlemeleri --- */
+.parchment h1, .parchment h2, .parchment h3 {
+    color: #0f0000; /* Başlıklar için tam siyah-kırmızı karışımı */
+    border-bottom: 1px solid rgba(139, 69, 19, 0.3); 
+    padding-bottom: 10px;
+    margin-top: 30px;
+}
+
+.parchment a {
+    color: #8b0000; 
+    text-decoration: none;
+    border-bottom: 1px dotted #8b0000;
+}
+
+.parchment a:hover {
+    background-color: rgba(139, 0, 0, 0.1);
+}
+
+.parchment code {
+    background: rgba(0, 0, 0, 0.05); 
+    padding: 2px 6px;
+    border-radius: 3px;
+    font-family: 'Special Elite', monospace; /* Satır içi kodlar için daktilo korundu */
+    font-size: 0.95em;
+    color: #000; /* Kod içi okunaklı siyah */
+}
+
+.parchment pre {
+    background: rgba(0, 0, 0, 0.06);
+    padding: 15px;
+    overflow-x: auto;
+    border-left: 4px solid rgba(139, 69, 19, 0.5); 
+    border-radius: 0 4px 4px 0;
+}
+
+@media (max-width: 600px) {
+    .parchment {
+        padding: 30px 20px;
+        border-radius: 2px 15px 3px 20px;
+    }
+}
+
+/* =========================================
+   6. CHATBOT UI
+   ========================================= */
+
+.cyber-chat-toggle {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    background: rgba(13, 10, 32, 0.9);
+    border: 2px solid #d0d8e2; 
+    color: #fdfdfd;
+    font-family: "Liberation Serif", "Times New Roman", serif;
+    font-size: 1.1rem;
+    padding: 12px 20px;
+    cursor: pointer;
+    box-shadow: 0 0 15px rgba(208, 216, 226, 0.3);
+    backdrop-filter: blur(5px);
+    z-index: 1000;
+    transition: 0.3s ease;
+    border-radius: 6px;
+}
+
+.cyber-chat-toggle:hover {
+    background: #d0d8e2;
+    color: #0d0a20;
+    box-shadow: 0 0 25px rgba(208, 216, 226, 0.6);
+}
+
+.cyber-chat-wrapper {
+    display: none; 
+    position: fixed;
+    bottom: 90px;
+    right: 30px;
+    width: 380px; 
+    border-radius: 12px;
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.7);
+    z-index: 1001;
+    background: transparent;
+}
+
+.cyber-chat-wrapper.open {
+    display: block;
+}
+
+.cyber-chat-inner {
+    background: radial-gradient(circle at top, #231d52 0%, #080614 100%);
+    height: 600px; 
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    overflow: hidden;
+    border-radius: 12px;
+    border: 1px solid rgba(255, 255, 255, 0.1); 
+}
+
+.scanlines {
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background: repeating-linear-gradient(0deg, rgba(0,0,0,0.1) 0px, rgba(0,0,0,0.1) 1px, transparent 1px, transparent 2px);
+    pointer-events: none;
+    z-index: 5;
+}
+
+.chat-header {
+    padding: 15px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid rgba(208, 216, 226, 0.3);
+    background: rgba(0, 0, 0, 0.4);
+}
+
+.chat-header h3 {
+    margin: 0;
+    font-family: "Liberation Serif", "Times New Roman", serif; 
+    font-size: 1.2rem;
+    letter-spacing: 2px;
+    color: #fdfdfd;
+}
+
+.chat-close {
+    background: none; 
+    border: none; 
+    color: #fdfdfd;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0;
+    transition: opacity 0.2s;
+}
+
+.chat-close:hover {
+    opacity: 0.7;
+}
+
+.chat-body {
+    flex-grow: 1;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    overflow-y: auto;
+    font-family: 'Special Elite', serif; 
+    font-size: 0.95rem;
+    color: #d0d8e2;
+}
+
+.typewriter-text {
+    line-height: 1.4;
+    text-shadow: 0 0 5px rgba(208, 216, 226, 0.3);
+}
+
+.chat-quick-btn {
+    background: rgba(208, 216, 226, 0.05);
+    border: 1px solid rgba(208, 216, 226, 0.3);
+    color: #d0d8e2;
+    padding: 10px;
+    text-align: left;
+    font-family: "Liberation Serif", "Times New Roman", serif; 
+    font-size: 0.95rem;
+    cursor: pointer;
+    border-radius: 6px;
+    transition: 0.2s ease;
+}
+
+.chat-quick-btn:hover {
+    background: #d0d8e2;
+    color: #0d0a20;
+}
+
+.chat-footer {
+    padding: 15px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    background: rgba(0, 0, 0, 0.4);
+    border-top: 1px solid rgba(208, 216, 226, 0.2);
+}
+
+.prompt-arrow {
+    color: #d0d8e2;
+    font-family: "Liberation Serif", "Times New Roman", serif; 
+    font-size: 1rem;
+}
+
+.chat-input {
+    flex-grow: 1;
+    background: transparent;
+    border: none;
+    color: #fff;
+    font-family: 'Special Elite', serif;
+    font-size: 1rem;
+    outline: none;
+    border-bottom: 1px solid rgba(255,255,255,0.2); 
+    padding-bottom: 3px;
+}
+
+.chat-submit-btn {
+    background: #d0d8e2;
+    color: #0d0a20;
+    border: none;
+    padding: 6px 14px;
+    font-family: "Liberation Serif", "Times New Roman", serif; 
+    font-weight: bold;
+    cursor: pointer;
+    border-radius: 4px;
+    transition: 0.2s ease;
+}
+
+.chat-submit-btn:hover {
+    background: #fdfdfd;
+}
+
+/* =========================================
+   7. CHATBOT MOBİL GÖRÜNÜM (FİX)
+   ========================================= */
+
+@media (max-width: 600px) {
+    .cyber-chat-toggle {
+        bottom: 20px; 
+        right: 20px;
+        padding: 10px 15px;
+        font-size: 1rem;
+    }
+
+    .cyber-chat-wrapper {
+        bottom: 80px; 
+        right: 10px; 
+        left: 10px; 
+        width: auto;
+    }
+    
+    .cyber-chat-inner {
+        height: 60vh; 
+        max-height: 500px;
+    }
+}
+
+/* =========================================
+   8. FOOTER
+   ========================================= */
+
+.site-footer {
+    text-align: center;
+    padding: 30px 20px 20px 20px;
+    font-size: 0.85rem;
+    color: rgba(208, 216, 226, 0.4); 
+    font-family: "Liberation Serif", serif;
+    letter-spacing: 1.5px;
+    width: 80%; 
+    max-width: 800px;
+    margin: auto auto 0 auto; 
+    border-top: 1px solid rgba(208, 216, 226, 0.1); 
+}
