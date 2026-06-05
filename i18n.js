@@ -1,9 +1,7 @@
 const translations = {
     en: {
         projects: "projects",
-        chatbot: "chatbot",
         resume: "resume",
-        info: "info",
         contact: "contact",
         language: "language &#9662;",
         english: "english",
@@ -12,13 +10,16 @@ const translations = {
         japanese: "japanese",
         pinnedRepos: "// pinned repositories \u2014 pulled directly from github",
         fetchingRepos: "> fetching repositories",
-        loadingProject: "> loading project"
+        loadingProject: "> loading project",
+        contactTitle: "Contact Me",
+        contactDesc: "You can reach out to me via the following platforms:",
+        contactLinkedIn: "LinkedIn Profile",
+        contactGitHub: "GitHub Profile",
+        contactEmail: "Email Address"
     },
     tr: {
         projects: "projeler",
-        chatbot: "sohbet botu",
         resume: "özgeçmiş",
-        info: "bilgi",
         contact: "iletişim",
         language: "dil &#9662;",
         english: "ingilizce",
@@ -27,13 +28,16 @@ const translations = {
         japanese: "japonca",
         pinnedRepos: "// sabitlenmiş repolar \u2014 doğrudan github'dan çekildi",
         fetchingRepos: "> repolar alınıyor",
-        loadingProject: "> proje yükleniyor"
+        loadingProject: "> proje yükleniyor",
+        contactTitle: "İletişim",
+        contactDesc: "Bana aşağıdaki platformlardan ulaşabilirsiniz:",
+        contactLinkedIn: "LinkedIn Profilim",
+        contactGitHub: "GitHub Profilim",
+        contactEmail: "E-posta Adresim"
     },
     de: {
         projects: "projekte",
-        chatbot: "chatbot",
         resume: "lebenslauf",
-        info: "info",
         contact: "kontakt",
         language: "sprache &#9662;",
         english: "englisch",
@@ -42,13 +46,16 @@ const translations = {
         japanese: "japanisch",
         pinnedRepos: "// angeheftete repositories \u2014 direkt von github geladen",
         fetchingRepos: "> repositories werden abgerufen",
-        loadingProject: "> projekt wird geladen"
+        loadingProject: "> projekt wird geladen",
+        contactTitle: "Kontakt",
+        contactDesc: "Sie können mich über die folgenden Plattformen erreichen:",
+        contactLinkedIn: "LinkedIn-Profil",
+        contactGitHub: "GitHub-Profil",
+        contactEmail: "E-Mail-Adresse"
     },
     jp: {
         projects: "プロジェクト",
-        chatbot: "チャットボット",
         resume: "履歴書",
-        info: "情報",
         contact: "連絡先",
         language: "言語 &#9662;",
         english: "英語",
@@ -57,7 +64,12 @@ const translations = {
         japanese: "日本語",
         pinnedRepos: "// 固定されたリポジトリ \u2014 githubから直接取得",
         fetchingRepos: "> リポジトリを取得中",
-        loadingProject: "> プロジェクトを読み込み中"
+        loadingProject: "> プロジェクトを読み込み中",
+        contactTitle: "連絡先",
+        contactDesc: "以下のプラットフォームからお問い合わせいただけます：",
+        contactLinkedIn: "LinkedIn プロフィール",
+        contactGitHub: "GitHub プロフィール",
+        contactEmail: "メールアドレス"
     }
 };
 
