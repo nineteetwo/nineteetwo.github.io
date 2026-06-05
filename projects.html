@@ -24,31 +24,31 @@
         <a href="index.html" class="logo">nineteetwo</a>
       </div>
 
-      <a href="projects.html">projects</a>
-      <a href="chatbot.html">chatbot</a>
-      <a href="cv.html">resume</a>
-      <a href="aboutme.html">info</a>
-      <a href="contact.html">contact</a>
+      <a href="projects.html" data-i18n="projects">projects</a>
+      <a href="chatbot.html" data-i18n="chatbot">chatbot</a>
+      <a href="cv.html" data-i18n="resume">resume</a>
+      <a href="aboutme.html" data-i18n="info">info</a>
+      <a href="contact.html" data-i18n="contact">contact</a>
 
       <div class="dropdown">
-        <a class="dropbtn" onclick="toggleLang(event)">language &#9662;</a>
+        <a class="dropbtn" onclick="toggleLang(event)" data-i18n="language">language &#9662;</a>
         <div class="dropdown-content" id="langDropdown">
-          <a onclick="changeLanguage(event, 'en')">english</a>
-          <a onclick="changeLanguage(event, 'tr')">turkish</a>
-          <a onclick="changeLanguage(event, 'de')">german</a>
-          <a onclick="changeLanguage(event, 'jp')">japanese</a>
+          <a onclick="changeLanguage(event, 'en')" data-i18n="english">english</a>
+          <a onclick="changeLanguage(event, 'tr')" data-i18n="turkish">turkish</a>
+          <a onclick="changeLanguage(event, 'de')" data-i18n="german">german</a>
+          <a onclick="changeLanguage(event, 'jp')" data-i18n="japanese">japanese</a>
         </div>
       </div>
     </nav>
   </header>
 
   <div class="projects-hero">
-    <p>// pinned repositories — pulled directly from github</p>
+    <p data-i18n="pinnedRepos">// pinned repositories — pulled directly from github</p>
   </div>
 
   <div class="projects-grid" id="projectsGrid">
     <div class="projects-status">
-      > fetching repositories<span class="blink">_</span>
+      <span data-i18n="fetchingRepos">&gt; fetching repositories</span><span class="blink">_</span>
     </div>
   </div>
 
@@ -56,6 +56,7 @@
     &copy; 2026 nineteetwo
   </footer>
 
+  <script src="i18n.js" defer></script>
   <script src="nav.js" defer></script>
   <script src="bg.js" defer></script>
   <script src="projects.js" defer></script>
