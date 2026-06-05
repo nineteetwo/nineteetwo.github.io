@@ -1,0 +1,66 @@
+name: Update Pinned Repos
+
+on:
+  push:
+    branches: [main]
+  schedule:
+    # Her gün gece yarısı da çalışır, yeni proje pinlediysen otomatik güncellenir
+    - cron: '0 0 * * *'
+  workflow_dispatch: # Elle de tetiklenebilir
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Fetch Pinned Repos via GraphQL
+        env:
+          GH_TOKEN: ${{ secrets.GH_PAT }}
+        run: |
+          GITHUB_USERNAME=$(gh api user --jq '.login')
+          
+          gh api graphql -f query='
+            query($login: String!) {
+              user(login: $login) {
+                pinnedItems(first: 6, types: REPOSITORY) {
+                  nodes {
+                    ... on Repository {
+                      name
+                      description
+                      url
+                      homepageUrl
+                      stargazerCount
+                      forkCount
+                      primaryLanguage {
+                        name
+                        color
+                      }
+                      repositoryTopics(first: 5) {
+                        nodes {
+                          topic {
+                            name
+                          }
+                        }
+                      }
+                      openGraphImageUrl
+                      updatedAt
+                    }
+                  }
+                }
+              }
+            }
+          ' -f login="$GITHUB_USERNAME" \
+          | jq '.data.user.pinnedItems.nodes' > pinned-repos.json
+
+      - name: Commit and push if changed
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add pinned-repos.json
+          git diff --staged --quiet || git commit -m "chore: update pinned repos [skip ci]"
+          git push

@@ -3,8 +3,11 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>nineteetwo</title>
+  <title>nineteetwo | project</title>
+  <meta name="description" content="Project details — nineteetwo">
   <link href="https://fonts.googleapis.com/css2?family=Special+Elite&display=swap" rel="stylesheet">
+  <!-- marked.js: markdown'u HTML'e çevirmek için -->
+  <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -41,11 +44,23 @@
     </nav>
   </header>
 
+  <!-- Proje başlık bandı (project.js tarafından doldurulur) -->
+  <div class="project-header-band" id="projectHeaderBand">
+    <div class="load-status">
+      > loading project<span class="blink">_</span>
+    </div>
+  </div>
+
+  <main class="page-content">
+    <div class="parchment" id="readmeContainer"></div>
+  </main>
+
   <footer class="site-footer">
     &copy; 2026 nineteetwo
   </footer>
 
   <script src="nav.js" defer></script>
   <script src="bg.js" defer></script>
+  <script src="project.js" defer></script>
 </body>
 </html>
