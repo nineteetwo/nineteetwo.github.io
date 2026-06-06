@@ -385,6 +385,102 @@ a {
     border-top: 1px solid rgba(208, 216, 226, 0.1);
 }
 
+.home-content {
+    flex-grow: 1;
+    max-width: 50rem;
+    width: 100%;
+    margin: 0 auto;
+    padding: 3rem 2rem 4rem;
+}
+
+.home-section {
+    padding: 2rem 0;
+    border-bottom: 1px solid rgba(224, 248, 250, 0.07);
+}
+
+.home-section:last-child {
+    border-bottom: none;
+}
+
+.home-heading {
+    font-family: "Special Elite", monospace;
+    font-size: 1rem;
+    color: rgba(224, 248, 250, 0.45);
+    letter-spacing: 0.1em;
+    margin: 0 0 1.25rem 0;
+    font-weight: normal;
+}
+
+.home-content p {
+    font-family: "Liberation Serif", "Times New Roman", serif;
+    font-size: 1rem;
+    color: rgba(224, 248, 250, 0.85);
+    line-height: 1.75;
+    margin: 0.75rem 0;
+}
+
+.home-item {
+    margin: 1rem 0 1.5rem 0;
+}
+
+.home-item-title {
+    display: block;
+    font-family: "Special Elite", monospace;
+    font-size: 0.95rem;
+    color: var(--clr-text);
+    letter-spacing: 0.04em;
+    margin-bottom: 0.2rem;
+}
+
+.home-item-meta {
+    display: block;
+    font-family: "Liberation Serif", serif;
+    font-size: 0.8rem;
+    color: rgba(224, 248, 250, 0.4);
+    letter-spacing: 0.06em;
+    margin-bottom: 0.4rem;
+}
+
+.home-item p {
+    margin: 0.25rem 0 0 0;
+    color: rgba(224, 248, 250, 0.7);
+}
+
+.home-stack-row {
+    display: flex;
+    gap: 1.5rem;
+    align-items: baseline;
+    padding: 0.5rem 0;
+    border-bottom: 1px solid rgba(224, 248, 250, 0.04);
+    font-family: "Liberation Serif", serif;
+    font-size: 0.9rem;
+    color: rgba(224, 248, 250, 0.75);
+}
+
+.home-stack-label {
+    font-family: "Special Elite", monospace;
+    font-size: 0.75rem;
+    color: rgba(224, 248, 250, 0.35);
+    letter-spacing: 0.08em;
+    min-width: 6rem;
+    flex-shrink: 0;
+}
+
+@media (max-width: 37.5em) {
+    .home-content {
+        padding: 2rem 1.25rem 3rem;
+    }
+
+    .home-stack-row {
+        flex-direction: column;
+        gap: 0.25rem;
+    }
+
+    .home-stack-label {
+        min-width: unset;
+    }
+}
+
 .projects-hero {
     text-align: center;
     padding: 2.5rem 1.25rem 0.625rem;
