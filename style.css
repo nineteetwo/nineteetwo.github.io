@@ -407,7 +407,16 @@ a {
 
 .project-card {
     background: rgba(13, 10, 32, 0.85);
-    clip-path: polygon(10% 0%, 90% 0%, 100% 50%, 90% 100%, 10% 100%, 0% 50%);
+    clip-path: polygon(
+        1.5rem 0%,
+        calc(100% - 1.5rem) 0%,
+        100% 1.5rem,
+        100% calc(100% - 1.5rem),
+        calc(100% - 1.5rem) 100%,
+        1.5rem 100%,
+        0% calc(100% - 1.5rem),
+        0% 1.5rem
+    );
     padding: 1.75rem 2.75rem;
     display: flex;
     flex-direction: column;
