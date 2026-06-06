@@ -52,7 +52,7 @@ jobs:
                 }
               }
             }
-          ' -f searchQuery="user:$GITHUB_USERNAME topic:portfolio sort:updated-desc" \
+          ' -f searchQuery="user:$GITHUB_USERNAME topic:portfolio fork:true sort:updated-desc" \
           | jq '.data.search.nodes' > pinned-repos.json
 
           echo "GITHUB_USERNAME=$GITHUB_USERNAME" >> $GITHUB_ENV
