@@ -1,5 +1,3 @@
-// project.js — URL'deki repo parametresine göre proje detayını ve README'yi yükler
-
 async function loadProject() {
     const params = new URLSearchParams(window.location.search);
     const repoName = params.get('repo');
@@ -7,15 +5,12 @@ async function loadProject() {
     const readmeContainer = document.getElementById('readmeContainer');
 
     if (!repoName) {
-        // Repo parametresi yoksa doğrudan projects.html'e yönlendir
         window.location.replace('projects.html');
         return;
     }
 
-    // Sayfa başlığını güncelle
     document.title = `nineteetwo | ${repoName}`;
 
-    // Önce pinned-repos.json'dan bu reponun bilgilerini çek
     let repoData = null;
     try {
         const jsonRes = await fetch('pinned-repos.json');
@@ -23,18 +18,14 @@ async function loadProject() {
             const allRepos = await jsonRes.json();
             repoData = allRepos.find(r => r.name === repoName) || null;
         }
-    } catch (e) {
-        // Repo verisi yoksa da README'yi yine de göstermeye çalış
-    }
+    } catch (e) {}
 
-    // GitHub kullanıcı adını repo URL'sinden al
-    let username = 'nineteetwo'; // Fallback — kendi GitHub kullanıcı adınla değiştir
+    let username = 'nineteetwo';
     if (repoData?.url) {
         const urlParts = repoData.url.split('/');
         username = urlParts[urlParts.length - 2];
     }
 
-    // Başlık bandını oluştur
     headerBand.innerHTML = `
         <a href="projects.html" class="project-back-btn">&larr; projects</a>
         <div class="project-title-area">
@@ -52,8 +43,6 @@ async function loadProject() {
         </div>
     `;
 
-    // README'yi GitHub Action tarafından önceden önbelleğe alınan yerel dosyadan yükle
-    // Bu sayede her ziyarette API token harcanmaz, sadece günde 1 kez Action çalışır
     let readmeMarkdown = null;
     try {
         const cachedUrl = `readmes/${repoName}.md?t=${Date.now()}`;
@@ -74,7 +63,6 @@ async function loadProject() {
         return;
     }
 
-    // marked.js ile markdown → HTML, görseller için relative path düzeltmesi
     marked.use({
         renderer: (() => {
             const renderer = new marked.Renderer();
@@ -91,7 +79,6 @@ async function loadProject() {
 
     readmeContainer.innerHTML = marked.parse(readmeMarkdown);
 
-    // README içindeki harici linkleri yeni sekmede aç
     readmeContainer.querySelectorAll('a').forEach(a => {
         if (a.href && !a.href.startsWith(window.location.origin)) {
             a.setAttribute('target', '_blank');

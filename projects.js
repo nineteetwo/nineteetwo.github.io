@@ -1,10 +1,7 @@
-// projects.js — pinned-repos.json'dan proje kartlarını dinamik olarak yükler
-
 async function loadProjects() {
     const grid = document.getElementById('projectsGrid');
 
     try {
-        // GitHub Actions tarafından güncellenen statik JSON dosyasını çek
         const response = await fetch('pinned-repos.json?t=' + Date.now());
 
         if (!response.ok) throw new Error('JSON not found');
