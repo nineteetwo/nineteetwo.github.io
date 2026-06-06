@@ -37,7 +37,7 @@ a {
 
 .logo {
     font-family: "Comic Neue", "Comic Sans MS", "Comic Sans", cursive;
-    font-weight: bold;
+    font-weight: 700;
     font-size: 1.4rem;
     color: var(--clr-nav);
     text-shadow: 0 0 0.625rem rgba(252, 254, 243, 0.8), 0 0 1.25rem rgba(252, 254, 243, 0.5);
