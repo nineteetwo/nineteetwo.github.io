@@ -16,7 +16,7 @@ const homeContent = {
         expTitle: `> experience`,
         exp: `
             <div class="home-item">
-                <span class="home-item-title">Software Engineer Intern &mdash; TopGPT</span>
+                <span class="home-item-title">Software Engineer Intern &mdash; DropGPT</span>
                 <span class="home-item-meta">Mar – Apr 2026 &nbsp;·&nbsp; Remote</span>
                 <p>Developed a Retrieval-Augmented Generation (RAG) system for the dropshipping domain using LangChain and FAISS.</p>
             </div>`,
@@ -45,7 +45,7 @@ const homeContent = {
         expTitle: `> deneyim`,
         exp: `
             <div class="home-item">
-                <span class="home-item-title">Yazılım Mühendisi Stajyeri &mdash; TopGPT</span>
+                <span class="home-item-title">Yazılım Mühendisi Stajyeri &mdash; DropGPT</span>
                 <span class="home-item-meta">Mar – Nis 2026 &nbsp;·&nbsp; Uzaktan</span>
                 <p>LangChain ve FAISS kullanarak dropshipping alanı için Retrieval-Augmented Generation (RAG) sistemi geliştirdim.</p>
             </div>`,
@@ -74,7 +74,7 @@ const homeContent = {
         expTitle: `> erfahrung`,
         exp: `
             <div class="home-item">
-                <span class="home-item-title">Softwareentwickler-Praktikant &mdash; TopGPT</span>
+                <span class="home-item-title">Softwareentwickler-Praktikant &mdash; DropGPT</span>
                 <span class="home-item-meta">März – Apr. 2026 &nbsp;·&nbsp; Remote</span>
                 <p>Entwicklung eines Retrieval-Augmented Generation (RAG)-Systems für die Dropshipping-Domäne mit LangChain und FAISS.</p>
             </div>`,
@@ -103,7 +103,7 @@ const homeContent = {
         expTitle: `> 経歴`,
         exp: `
             <div class="home-item">
-                <span class="home-item-title">ソフトウェアエンジニアインターン &mdash; TopGPT</span>
+                <span class="home-item-title">ソフトウェアエンジニアインターン &mdash; DropGPT</span>
                 <span class="home-item-meta">2026年3月 – 4月 &nbsp;·&nbsp; リモート</span>
                 <p>LangChainとFAISSを使用したドロップシッピング領域向けRetrieval-Augmented Generation（RAG）システムを開発。</p>
             </div>`,
