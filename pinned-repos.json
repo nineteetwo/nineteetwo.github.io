@@ -19,8 +19,64 @@
         }
       ]
     },
-    "openGraphImageUrl": "https://opengraph.githubassets.com/08d377e6b062f278d24bb402ee2dcedd9264ae55faf6029fff735b9ba82e709b/nineteetwo/nineteetwo.github.io",
-    "updatedAt": "2026-06-06T10:48:19Z"
+    "openGraphImageUrl": "https://opengraph.githubassets.com/85834bbaccc67b239dd0b1c2390b5fdbf9f28deb9c584ab991c37651890a9e44/nineteetwo/nineteetwo.github.io",
+    "updatedAt": "2026-06-06T10:56:11Z"
+  },
+  {
+    "name": "RomAI-Archive",
+    "description": "Archived Version of Innovation in Health Community's BREATHE4HEALTH Hackathon",
+    "url": "https://github.com/nineteetwo/RomAI-Archive",
+    "homepageUrl": "",
+    "stargazerCount": 0,
+    "forkCount": 0,
+    "primaryLanguage": {
+      "name": "Python",
+      "color": "#3572A5"
+    },
+    "repositoryTopics": {
+      "nodes": [
+        {
+          "topic": {
+            "name": "hackathon-project"
+          }
+        },
+        {
+          "topic": {
+            "name": "portfolio"
+          }
+        }
+      ]
+    },
+    "openGraphImageUrl": "https://opengraph.githubassets.com/2d82472b54fff3d3e4b80995c7739a169bcb562f0bc753707f0d369836b3dc28/nineteetwo/RomAI-Archive",
+    "updatedAt": "2026-06-06T10:44:53Z"
+  },
+  {
+    "name": "weatherwise_archive",
+    "description": "Archived Copy Version Of Yandex Anadolu Hackathon Project.",
+    "url": "https://github.com/nineteetwo/weatherwise_archive",
+    "homepageUrl": "",
+    "stargazerCount": 0,
+    "forkCount": 0,
+    "primaryLanguage": {
+      "name": "Python",
+      "color": "#3572A5"
+    },
+    "repositoryTopics": {
+      "nodes": [
+        {
+          "topic": {
+            "name": "hackathon-project"
+          }
+        },
+        {
+          "topic": {
+            "name": "portfolio"
+          }
+        }
+      ]
+    },
+    "openGraphImageUrl": "https://opengraph.githubassets.com/70b3db51bd77e8b2621c13a8fb91c8a8d434b498364684b1d0d4b00a68cd783f/nineteetwo/weatherwise_archive",
+    "updatedAt": "2026-06-06T10:23:14Z"
   },
   {
     "name": "i3-configuration",
