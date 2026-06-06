@@ -7,8 +7,8 @@ async function loadProject() {
     const readmeContainer = document.getElementById('readmeContainer');
 
     if (!repoName) {
-        headerBand.innerHTML = '<div class="load-status">> error: no repository specified.</div>';
-        readmeContainer.innerHTML = '';
+        // Repo parametresi yoksa doğrudan projects.html'e yönlendir
+        window.location.replace('projects.html');
         return;
     }
 
