@@ -289,7 +289,7 @@ a {
     box-shadow:
         0 0 1.5rem rgba(252, 254, 243, 0.12),
         0 1.25rem 3rem rgba(0, 0, 0, 0.6);
-    font-family: 'Special Elite', monospace;
+    font-family: "Liberation Serif", "Times New Roman", serif;
     line-height: 1.7;
     font-size: 1rem;
     overflow: hidden;
@@ -406,40 +406,23 @@ a {
 }
 
 .project-card {
-    background: rgba(13, 10, 32, 0.7);
-    border: 1px solid rgba(208, 216, 226, 0.15);
-    border-radius: 0.75rem;
-    padding: 1.5rem;
+    background: rgba(13, 10, 32, 0.85);
+    clip-path: polygon(10% 0%, 90% 0%, 100% 50%, 90% 100%, 10% 100%, 0% 50%);
+    padding: 1.75rem 2.75rem;
     display: flex;
     flex-direction: column;
     gap: 0.75rem;
     cursor: pointer;
     text-decoration: none;
     color: inherit;
-    transition: border-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
-    backdrop-filter: blur(0.5rem);
+    transition: transform 0.3s ease, filter 0.3s ease;
+    filter: drop-shadow(0 0 0.5rem rgba(224, 248, 250, 0.08)) drop-shadow(0 0 0 0.5px rgba(224, 248, 250, 0.15));
     position: relative;
-    overflow: hidden;
-}
-
-.project-card::before {
-    content: '';
-    position: absolute;
-    top: 0; left: 0; right: 0;
-    height: 0.125rem;
-    background: linear-gradient(to right, transparent, rgba(224, 248, 250, 0.5), transparent);
-    opacity: 0;
-    transition: opacity 0.3s ease;
 }
 
 .project-card:hover {
-    border-color: rgba(224, 248, 250, 0.35);
-    transform: translateY(-0.25rem);
-    box-shadow: 0 1rem 2.5rem rgba(0, 0, 0, 0.5);
-}
-
-.project-card:hover::before {
-    opacity: 1;
+    transform: translateY(-0.3rem) scale(1.02);
+    filter: drop-shadow(0 0 1.2rem rgba(224, 248, 250, 0.3)) drop-shadow(0 0 2.5rem rgba(224, 248, 250, 0.1));
 }
 
 .project-card-name {
