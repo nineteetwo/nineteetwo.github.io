@@ -52,30 +52,24 @@ async function loadProject() {
         </div>
     `;
 
-    // README dosyasını GitHub raw API ile çek
-    // Önce 'main' branch dene, sonra 'master'
+    // README'yi GitHub Action tarafından önceden önbelleğe alınan yerel dosyadan yükle
+    // Bu sayede her ziyarette API token harcanmaz, sadece günde 1 kez Action çalışır
     let readmeMarkdown = null;
-    const branches = ['main', 'master'];
-    const filenames = ['README.md', 'readme.md', 'Readme.md'];
-
-    outer:
-    for (const branch of branches) {
-        for (const file of filenames) {
-            try {
-                const rawUrl = `https://raw.githubusercontent.com/${username}/${repoName}/${branch}/${file}`;
-                const res = await fetch(rawUrl);
-                if (res.ok) {
-                    readmeMarkdown = await res.text();
-                    break outer;
-                }
-            } catch (e) {}
+    try {
+        const cachedUrl = `readmes/${repoName}.md?t=${Date.now()}`;
+        const res = await fetch(cachedUrl);
+        if (res.ok) {
+            readmeMarkdown = await res.text();
         }
-    }
+    } catch (e) {}
 
     if (!readmeMarkdown) {
         readmeContainer.innerHTML = `
             <div class="load-status">
-                > no README.md found for this repository.
+                > no README.md found for this repository.<br><br>
+                <span style="font-size:0.75rem; color: rgba(208,216,226,0.3)">
+                    make sure the github action has run and readmes/${repoName}.md exists.
+                </span>
             </div>`;
         return;
     }

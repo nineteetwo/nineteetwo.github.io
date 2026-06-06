@@ -4,7 +4,7 @@ on:
   push:
     branches: [main]
   schedule:
-    # Her gün gece yarısı da çalışır, yeni proje pinlediysen otomatik güncellenir
+    # Her gün gece yarısı çalışır
     - cron: '0 0 * * *'
   workflow_dispatch: # Elle de tetiklenebilir
 
@@ -18,49 +18,82 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v4
 
-      - name: Fetch Pinned Repos via GraphQL
+      - name: Fetch Repos via GraphQL Search
         env:
           GH_TOKEN: ${{ secrets.GH_PAT }}
         run: |
           GITHUB_USERNAME=$(gh api user --jq '.login')
-          
+
           gh api graphql -f query='
-            query($login: String!) {
-              user(login: $login) {
-                pinnedItems(first: 6, types: REPOSITORY) {
-                  nodes {
-                    ... on Repository {
+            query($searchQuery: String!) {
+              search(query: $searchQuery, type: REPOSITORY, first: 20) {
+                nodes {
+                  ... on Repository {
+                    name
+                    description
+                    url
+                    homepageUrl
+                    stargazerCount
+                    forkCount
+                    primaryLanguage {
                       name
-                      description
-                      url
-                      homepageUrl
-                      stargazerCount
-                      forkCount
-                      primaryLanguage {
-                        name
-                        color
-                      }
-                      repositoryTopics(first: 5) {
-                        nodes {
-                          topic {
-                            name
-                          }
+                      color
+                    }
+                    repositoryTopics(first: 5) {
+                      nodes {
+                        topic {
+                          name
                         }
                       }
-                      openGraphImageUrl
-                      updatedAt
                     }
+                    openGraphImageUrl
+                    updatedAt
                   }
                 }
               }
             }
-          ' -f login="$GITHUB_USERNAME" \
-          | jq '.data.user.pinnedItems.nodes' > pinned-repos.json
+          ' -f searchQuery="user:$GITHUB_USERNAME topic:portfolio sort:updated-desc" \
+          | jq '.data.search.nodes' > pinned-repos.json
+
+          echo "GITHUB_USERNAME=$GITHUB_USERNAME" >> $GITHUB_ENV
+
+      - name: Fetch and cache README files
+        env:
+          GH_TOKEN: ${{ secrets.GH_PAT }}
+        run: |
+          mkdir -p readmes
+
+          # pinned-repos.json'daki her repo için README çek ve kaydet
+          jq -r '.[].name' pinned-repos.json | while read REPO_NAME; do
+            README_SAVED=false
+
+            for BRANCH in main master; do
+              for FILE in README.md readme.md Readme.md; do
+                URL="https://raw.githubusercontent.com/${GITHUB_USERNAME}/${REPO_NAME}/${BRANCH}/${FILE}"
+                HTTP_CODE=$(curl -s -o "readmes/${REPO_NAME}.md" -w "%{http_code}" \
+                  -H "Authorization: Bearer ${GH_TOKEN}" \
+                  "$URL")
+
+                if [ "$HTTP_CODE" = "200" ]; then
+                  echo "✓ ${REPO_NAME}: README fetched from ${BRANCH}/${FILE}"
+                  README_SAVED=true
+                  break 2
+                fi
+              done
+            done
+
+            if [ "$README_SAVED" = "false" ]; then
+              echo "✗ ${REPO_NAME}: No README found, creating placeholder"
+              echo "# ${REPO_NAME}" > "readmes/${REPO_NAME}.md"
+              echo "" >> "readmes/${REPO_NAME}.md"
+              echo "_No README.md found for this repository._" >> "readmes/${REPO_NAME}.md"
+            fi
+          done
 
       - name: Commit and push if changed
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
-          git add pinned-repos.json
-          git diff --staged --quiet || git commit -m "chore: update pinned repos [skip ci]"
+          git add pinned-repos.json readmes/
+          git diff --staged --quiet || git commit -m "chore: update repos and readme cache [skip ci]"
           git push
