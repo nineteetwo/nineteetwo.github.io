@@ -809,3 +809,41 @@ a {
 .contact-link:hover {
     text-shadow: 0 0 0.6rem rgba(224, 248, 250, 0.8), 0 0 1.2rem rgba(224, 248, 250, 0.4);
 }
+
+@media (max-width: 37.5em) {
+    .contact-container {
+        padding: 2.5rem 1rem 2rem;
+    }
+
+    .contact-header {
+        font-size: 0.8rem;
+        margin-bottom: 1.5rem;
+    }
+
+    .contact-line {
+        flex-direction: column;
+        gap: 0.25rem;
+        padding: 0.875rem 0;
+    }
+
+    .contact-prompt {
+        display: none;
+    }
+
+    .contact-sep {
+        display: none;
+    }
+
+    .contact-label {
+        min-width: unset;
+        font-size: 0.75rem;
+        text-transform: uppercase;
+        color: rgba(224, 248, 250, 0.35);
+    }
+
+    .contact-link {
+        font-size: 0.88rem;
+        word-break: break-all;
+        overflow-wrap: break-word;
+    }
+}
