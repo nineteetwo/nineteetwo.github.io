@@ -1,5 +1,28 @@
 [
   {
+    "name": "C-Projects",
+    "description": "Projects that i've made while learning c",
+    "url": "https://github.com/nineteetwo/C-Projects",
+    "homepageUrl": "",
+    "stargazerCount": 0,
+    "forkCount": 0,
+    "primaryLanguage": {
+      "name": "C",
+      "color": "#555555"
+    },
+    "repositoryTopics": {
+      "nodes": [
+        {
+          "topic": {
+            "name": "portfolio"
+          }
+        }
+      ]
+    },
+    "openGraphImageUrl": "https://opengraph.githubassets.com/2d662cb931049a2fad9303eaa49f89c4f5f6d54d3a68a5f1a94eb86a9039568c/nineteetwo/C-Projects",
+    "updatedAt": "2026-06-08T13:55:52Z"
+  },
+  {
     "name": "nineteetwo.github.io",
     "description": "personal portfolio website",
     "url": "https://github.com/nineteetwo/nineteetwo.github.io",
@@ -19,8 +42,8 @@
         }
       ]
     },
-    "openGraphImageUrl": "https://opengraph.githubassets.com/1597345b3b646a33f023e952dc69b55bea3f311a3b8809ddb59020d0cbba06d9/nineteetwo/nineteetwo.github.io",
-    "updatedAt": "2026-06-07T07:59:18Z"
+    "openGraphImageUrl": "https://opengraph.githubassets.com/96b2ee764dc6bf7eb4c45c05cfae219db4cbf61d80e924f52893cfd18267a4b0/nineteetwo/nineteetwo.github.io",
+    "updatedAt": "2026-06-08T02:54:06Z"
   },
   {
     "name": "RomAI-Archive",
@@ -100,5 +123,51 @@
     },
     "openGraphImageUrl": "https://opengraph.githubassets.com/de779d9998477528c50a3fb9ab6ae77fa8c1c3665f3612ed93f8176f6a38c87c/nineteetwo/i3-configuration",
     "updatedAt": "2026-06-06T05:00:24Z"
+  },
+  {
+    "name": "arduino-projects",
+    "description": "Simple projects that are made while i was learning arduino.",
+    "url": "https://github.com/nineteetwo/arduino-projects",
+    "homepageUrl": "",
+    "stargazerCount": 0,
+    "forkCount": 0,
+    "primaryLanguage": {
+      "name": "C++",
+      "color": "#f34b7d"
+    },
+    "repositoryTopics": {
+      "nodes": [
+        {
+          "topic": {
+            "name": "portfolio"
+          }
+        }
+      ]
+    },
+    "openGraphImageUrl": "https://opengraph.githubassets.com/93bf953e89e272e155ee68d86ea71d895c5a9fe1ce6cffe38e7ee224b4317e63/nineteetwo/arduino-projects",
+    "updatedAt": "2026-06-08T13:55:27Z"
+  },
+  {
+    "name": "python-projects",
+    "description": null,
+    "url": "https://github.com/nineteetwo/python-projects",
+    "homepageUrl": "",
+    "stargazerCount": 0,
+    "forkCount": 0,
+    "primaryLanguage": {
+      "name": "Python",
+      "color": "#3572A5"
+    },
+    "repositoryTopics": {
+      "nodes": [
+        {
+          "topic": {
+            "name": "portfolio"
+          }
+        }
+      ]
+    },
+    "openGraphImageUrl": "https://opengraph.githubassets.com/4492b194108168b79a5747bcfc41e704d89e03593ebeaa3aff496ae1c97b5f63/nineteetwo/python-projects",
+    "updatedAt": "2026-06-08T13:55:07Z"
   }
 ]
