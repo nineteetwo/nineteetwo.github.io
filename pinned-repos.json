@@ -1,5 +1,28 @@
 [
   {
+    "name": "nineteetwo.github.io",
+    "description": "personal portfolio website",
+    "url": "https://github.com/nineteetwo/nineteetwo.github.io",
+    "homepageUrl": "https://nineteetwo.github.io/",
+    "stargazerCount": 0,
+    "forkCount": 0,
+    "primaryLanguage": {
+      "name": "JavaScript",
+      "color": "#f1e05a"
+    },
+    "repositoryTopics": {
+      "nodes": [
+        {
+          "topic": {
+            "name": "portfolio"
+          }
+        }
+      ]
+    },
+    "openGraphImageUrl": "https://opengraph.githubassets.com/c11a9877a0cb8d40b14d7e9c08300dfe7bf57168a45ce1d2b6efc0c9290463a3/nineteetwo/nineteetwo.github.io",
+    "updatedAt": "2026-06-10T02:45:15Z"
+  },
+  {
     "name": "C-Projects",
     "description": "Projects that i've made while learning c",
     "url": "https://github.com/nineteetwo/C-Projects",
@@ -21,29 +44,6 @@
     },
     "openGraphImageUrl": "https://opengraph.githubassets.com/a059ca37382c460aee05b831e194d17ae578a77f14b273f68a7ff046e61df87e/nineteetwo/C-Projects",
     "updatedAt": "2026-06-09T16:53:20Z"
-  },
-  {
-    "name": "nineteetwo.github.io",
-    "description": "personal portfolio website",
-    "url": "https://github.com/nineteetwo/nineteetwo.github.io",
-    "homepageUrl": "https://nineteetwo.github.io/",
-    "stargazerCount": 0,
-    "forkCount": 0,
-    "primaryLanguage": {
-      "name": "JavaScript",
-      "color": "#f1e05a"
-    },
-    "repositoryTopics": {
-      "nodes": [
-        {
-          "topic": {
-            "name": "portfolio"
-          }
-        }
-      ]
-    },
-    "openGraphImageUrl": "https://opengraph.githubassets.com/d43b522029cde97317eddc77b91b63b4471e0783123ad97856d933ce750794be/nineteetwo/nineteetwo.github.io",
-    "updatedAt": "2026-06-09T02:31:38Z"
   },
   {
     "name": "RomAI-Archive",
