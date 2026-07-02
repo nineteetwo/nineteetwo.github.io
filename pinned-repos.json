@@ -1,5 +1,28 @@
 [
   {
+    "name": "nineteetwo.github.io",
+    "description": "personal portfolio website",
+    "url": "https://github.com/nineteetwo/nineteetwo.github.io",
+    "homepageUrl": "https://nineteetwo.github.io/",
+    "stargazerCount": 0,
+    "forkCount": 0,
+    "primaryLanguage": {
+      "name": "JavaScript",
+      "color": "#f1e05a"
+    },
+    "repositoryTopics": {
+      "nodes": [
+        {
+          "topic": {
+            "name": "portfolio"
+          }
+        }
+      ]
+    },
+    "openGraphImageUrl": "https://opengraph.githubassets.com/6be9bfe1f6fb790187a0dff349dddf93135b7566e3ed12722159fdd0998b7357/nineteetwo/nineteetwo.github.io",
+    "updatedAt": "2026-07-01T02:48:04Z"
+  },
+  {
     "name": "Archived-Copy-of-the-USAII-Global-Hackathon-2026-Project",
     "description": "the official repo is here",
     "url": "https://github.com/nineteetwo/Archived-Copy-of-the-USAII-Global-Hackathon-2026-Project",
@@ -21,29 +44,6 @@
     },
     "openGraphImageUrl": "https://opengraph.githubassets.com/3481b8bc45af2c45cf66bb9624ec37639bb6119ebe31ad9c68fa7e36d1025bca/nineteetwo/Archived-Copy-of-the-USAII-Global-Hackathon-2026-Project",
     "updatedAt": "2026-06-30T17:03:56Z"
-  },
-  {
-    "name": "nineteetwo.github.io",
-    "description": "personal portfolio website",
-    "url": "https://github.com/nineteetwo/nineteetwo.github.io",
-    "homepageUrl": "https://nineteetwo.github.io/",
-    "stargazerCount": 0,
-    "forkCount": 0,
-    "primaryLanguage": {
-      "name": "JavaScript",
-      "color": "#f1e05a"
-    },
-    "repositoryTopics": {
-      "nodes": [
-        {
-          "topic": {
-            "name": "portfolio"
-          }
-        }
-      ]
-    },
-    "openGraphImageUrl": "https://opengraph.githubassets.com/0b37a668c764c5d8b3f44d89983cafb134e81ab91f5c839a38300519ed4977af/nineteetwo/nineteetwo.github.io",
-    "updatedAt": "2026-06-30T02:41:50Z"
   },
   {
     "name": "C-Projects",
